@@ -8,6 +8,8 @@ describe('FizzBuzz', () => {
     test('should throw an error when number range is not valid', () => {
         expect(() => FizzBuzz(0)).toThrow(Error)
         expect(() => FizzBuzz(0)).toThrow('Number must be between 1 and 100')
+        expect(() => FizzBuzz(101)).toThrow(Error)
+        expect(() => FizzBuzz(101)).toThrow('Number must be between 1 and 100')
     })
 
     test('should return FizzBuzz', () => {
