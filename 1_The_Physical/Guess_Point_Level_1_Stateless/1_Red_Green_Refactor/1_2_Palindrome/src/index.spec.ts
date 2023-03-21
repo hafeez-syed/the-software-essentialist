@@ -1,19 +1,23 @@
 import { Palindrome } from './index'
 
 describe('palindrome checker', () => {
-    test('should return a string', () => {
-        expect(typeof Palindrome('')).toBe('string')
+    test('word "wow" is a Palindrome', () => {
+        expect(Palindrome('wow')).toBe(true)
     })
 
-    test('should return a Palindrome of the word "wow"', () => {
-        expect(Palindrome('wow')).toBe('wow')
+    test('word "Mow" is a Palindrome', () => {
+        expect(Palindrome('Mom')).toBe(true)
     })
 
-    test('should return a Palindrome of the word "Mom"', () => {
-        expect(Palindrome('Mom')).toBe('mom')
+    test('word "racecar" is a Palindrome', () => {
+        expect(Palindrome('racecar')).toBe(true)
     })
 
-    test('should return a Palindrome of the word "racecar"', () => {
-        expect(Palindrome('racecar')).toBe('racecar')
+    test('word "bill" is not a Palindrome', () => {
+        expect(Palindrome('bill')).toBe(false)
+    })
+
+    test('word "greetings" is not a Palindrome', () => {
+        expect(Palindrome('greetings')).toBe(false)
     })
 })
