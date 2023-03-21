@@ -20,4 +20,12 @@ describe('palindrome checker', () => {
     test('word "greetings" is not a Palindrome', () => {
         expect(Palindrome('greetings')).toBe(false)
     })
+
+    test('phrase "Was It A Rat I Saw" is a Palindrome', () => {
+        expect(Palindrome('Was It A Rat I Saw')).toBe(true)
+    })
+
+    test('phrase "Never Odd or Even" is a Palindrome', () => {
+        expect(Palindrome('Never Odd or Even')).toBe(true)
+    })
 })

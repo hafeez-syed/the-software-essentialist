@@ -1,8 +1,8 @@
 export const Palindrome = (word: string): boolean => {
-    const actual: string = word
-    return word
-    .toLowerCase()
+    const actual: string = word.toLowerCase().replace(/ /g, '')
+    
+    return actual
     .split('')
     .reverse()
-    .join('') === actual.toLowerCase()
+    .join('') === actual
 }
