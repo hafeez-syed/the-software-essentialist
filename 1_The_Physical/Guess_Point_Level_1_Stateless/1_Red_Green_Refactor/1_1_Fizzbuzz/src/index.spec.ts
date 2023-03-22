@@ -1,8 +1,9 @@
 import FizzBuzz from './fizzbuzz';
 
 describe('FizzBuzz', () => {
-    test('should only accept strings', () => {
+    test('should return a string', () => {
         expect(typeof FizzBuzz(1)).toBe('string')
+        expect(typeof (() => FizzBuzz(101))).toBe('function')
     })
 
     test('should throw an error when number range is not valid', () => {
