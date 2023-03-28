@@ -8,30 +8,27 @@ import {
 class PasswordValidator {
     constructor() {}
 
+    checkPasswordLength(password: string): boolean {
+        return password.length >= 5 && password.length <= 15
+    }
+
+    checkPasswordHasDigit(password: string): boolean {
+        return /[0-9]/.test(password)
+    }
+
+    checkPasswordHasUppercase(password: string): boolean {
+        return /[A-Z]/.test(password)
+    }
+
     validate(password: string): ValidatorResult {
-        let errors: string[] = [
-            MESSAGE_LENGTH,
-            MESSAGE_HAS_DIGIT,
-            MESSAGE_HAS_UPPERCASE
-        ]
-        let PASSWORD_LENGTH_VALID = false
-        let PASSWORD_DIGIT_VALID = false
-        let PASSWORD_HAS_UPPERCASE = false
+        let errors: string[] = []
+        let PASSWORD_LENGTH_VALID = this.checkPasswordLength(password)
+        let PASSWORD_DIGIT_VALID = this.checkPasswordHasDigit(password)
+        let PASSWORD_HAS_UPPERCASE = this.checkPasswordHasUppercase(password)
 
-        if(password.length >= 5 && password.length <= 15) {
-            errors = errors.filter(message => message !== MESSAGE_LENGTH)
-            PASSWORD_LENGTH_VALID = true
-        }
-
-        if (/[0-9]/.test(password)) {
-            errors = errors.filter(message => message !== MESSAGE_HAS_DIGIT)
-            PASSWORD_DIGIT_VALID = true
-        }
-
-        if (/[A-Z]/.test(password)) {
-            errors = errors.filter(message => message !== MESSAGE_HAS_UPPERCASE)
-            PASSWORD_HAS_UPPERCASE = true
-        }
+        !PASSWORD_LENGTH_VALID && errors.push(MESSAGE_LENGTH)
+        !PASSWORD_DIGIT_VALID && errors.push(MESSAGE_HAS_DIGIT)
+        !PASSWORD_HAS_UPPERCASE && errors.push(MESSAGE_HAS_UPPERCASE)
 
         return {
             isPasswordValid: PASSWORD_LENGTH_VALID && PASSWORD_DIGIT_VALID && PASSWORD_HAS_UPPERCASE,
