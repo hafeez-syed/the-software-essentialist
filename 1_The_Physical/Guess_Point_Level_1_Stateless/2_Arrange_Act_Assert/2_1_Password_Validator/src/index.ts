@@ -9,22 +9,23 @@ class PasswordValidator {
     constructor() {}
 
     validate(password: string): ValidatorResult {
-        let errors: string[] = []
-        const PASSWORD_LENGTH_VALID = true
-        const PASSWORD_DIGIT_VALID = true
-        const PASSWORD_HAS_UPPERCASE = true
+        let errors: string[] = [
+            MESSAGE_LENGTH,
+            MESSAGE_HAS_DIGIT,
+            MESSAGE_HAS_UPPERCASE
+        ]
+        let PASSWORD_LENGTH_VALID = false
+        let PASSWORD_DIGIT_VALID = false
+        let PASSWORD_HAS_UPPERCASE = false
 
-        if(password.length < 5 || password.length > 15) {
-            errors.push(MESSAGE_LENGTH)
+        if(password.length >= 5 && password.length <= 15) {
+            errors.filter(message => message !== MESSAGE_LENGTH)
+            PASSWORD_LENGTH_VALID = true
         }
 
         return {
             isPasswordValid: PASSWORD_LENGTH_VALID && PASSWORD_DIGIT_VALID && PASSWORD_HAS_UPPERCASE,
-            errors: [
-                MESSAGE_LENGTH,
-                MESSAGE_HAS_DIGIT, 
-                MESSAGE_HAS_UPPERCASE 
-            ]
+            errors
         }
     }
 }
