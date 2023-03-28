@@ -19,8 +19,13 @@ class PasswordValidator {
         let PASSWORD_HAS_UPPERCASE = false
 
         if(password.length >= 5 && password.length <= 15) {
-            errors.filter(message => message !== MESSAGE_LENGTH)
+            errors = errors.filter(message => message !== MESSAGE_LENGTH)
             PASSWORD_LENGTH_VALID = true
+        }
+
+        if (/[0-9]/.test(password)) {
+            errors = errors.filter(message => message !== MESSAGE_HAS_DIGIT)
+            PASSWORD_DIGIT_VALID = true
         }
 
         return {
