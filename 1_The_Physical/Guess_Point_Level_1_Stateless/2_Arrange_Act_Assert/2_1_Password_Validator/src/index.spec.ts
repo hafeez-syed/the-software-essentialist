@@ -1,22 +1,10 @@
+import PasswordValidator from './index'
 
 describe('password validator', () => {
-    test('password length should be between 5 and 15', () => {
-        const password = '12345678901234567890'
-        const result = passwordValidator(password)
-        expect(result).toBe(false)
-        
-    })
+    test('should not validate password, when the password length is not correct', () => {
+        const passwordValidator = new PasswordValidator()
+        const result = passwordValidator.validate('12345678901234567890')
 
-    test('password should have at least 1 digit', () => {
-        const password = '12345678901234567890'
-        const result = passwordValidator(password)
-        expect(result).toBe(false)
-        
-    })
-
-    test('password should have at least 1 uppercase letter', () => {
-        const password = '12345678901234567890'
-        const result = passwordValidator(password)
         expect(result).toBe(false)
         
     })
