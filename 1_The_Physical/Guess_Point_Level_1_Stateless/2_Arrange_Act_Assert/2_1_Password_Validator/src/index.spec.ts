@@ -17,7 +17,7 @@ describe('password validator', () => {
         ]))
     })
 
-    test('should not validate password, when the password length is not correct', () => {
+    test('should not validate password, when on the password length is correct', () => {
         const passwordValidator = new PasswordValidator()
         const result = passwordValidator.validate('123456789012345')
         expect(result.isPasswordValid).toBe(false)
