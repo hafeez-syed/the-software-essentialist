@@ -28,6 +28,11 @@ class PasswordValidator {
             PASSWORD_DIGIT_VALID = true
         }
 
+        if (/[A-Z]/.test(password)) {
+            errors = errors.filter(message => message !== MESSAGE_HAS_UPPERCASE)
+            PASSWORD_HAS_UPPERCASE = true
+        }
+
         return {
             isPasswordValid: PASSWORD_LENGTH_VALID && PASSWORD_DIGIT_VALID && PASSWORD_HAS_UPPERCASE,
             errors

@@ -36,6 +36,7 @@ describe('password validator', () => {
         
         expect(result.isPasswordValid).toBe(false)
         expect(result.errors).not.toContain(MESSAGE_LENGTH)
+        expect(result.errors).not.toContain(MESSAGE_HAS_DIGIT)
         expect(result.errors).toEqual(expect.arrayContaining([
             MESSAGE_HAS_UPPERCASE
         ]))
@@ -45,11 +46,8 @@ describe('password validator', () => {
         const passwordValidator = new PasswordValidator()
         const result = passwordValidator.validate('7bcdefGhijklmn0')
         
-        expect(result.isPasswordValid).toBe(false)
-        expect(result.errors).not.toContain(MESSAGE_LENGTH)
-        expect(result.errors).toEqual(expect.arrayContaining([
-            MESSAGE_HAS_UPPERCASE
-        ]))
+        expect(result.isPasswordValid).toBe(true)
+        expect(result.errors).toEqual([])
     })
 })
 
