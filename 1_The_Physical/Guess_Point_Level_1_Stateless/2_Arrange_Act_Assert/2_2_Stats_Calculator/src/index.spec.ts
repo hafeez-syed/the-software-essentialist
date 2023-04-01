@@ -1,3 +1,5 @@
+import StatsCalculator from './index'
+
 const sequence: number[] = [2, 4, 21, -8, 53, 40]
 
 describe('stats calculator', () => {
