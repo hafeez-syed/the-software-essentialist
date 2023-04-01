@@ -15,5 +15,10 @@ describe('stats calculator', () => {
     test('return the total number of elements in the sequence', () => {
         const stats = new StatsCalculator(sequence)
         expect(stats.numberOfElements()).toBe(6)
-    }
+    })
+
+    test('return the average value from the sequence', () => {
+        const stats = new StatsCalculator(sequence)
+        expect(stats.averageValue()).toBe(21.5)
+    })
 })
