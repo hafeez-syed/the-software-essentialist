@@ -11,6 +11,10 @@ class StatsCalculator {
         console.log(this.sortNumbers(this.sequence))
         return this.sortNumbers(this.sequence)[0]
     }
+
+    maximumValue(): number {
+        return this.sortNumbers(this.sequence)[this.sequence.length - 1]
+    }
 }
 
 export default StatsCalculator
