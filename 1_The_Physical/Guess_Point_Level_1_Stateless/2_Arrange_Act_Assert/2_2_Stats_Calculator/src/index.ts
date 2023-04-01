@@ -8,7 +8,6 @@ class StatsCalculator {
     }
 
     minimumValue(): number {
-        console.log(this.sortNumbers(this.sequence))
         return this.sortNumbers(this.sequence)[0]
     }
 
@@ -18,6 +17,11 @@ class StatsCalculator {
 
     numberOfElements(): number {
         return this.sequence.length
+    }
+
+    averageValue(): number {
+        const sum = this.sequence.reduce((a, b) => a + b, 0)
+        return sum / this.sequence.length
     }
 }
 

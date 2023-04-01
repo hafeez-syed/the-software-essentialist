@@ -19,6 +19,6 @@ describe('stats calculator', () => {
 
     test('return the average value from the sequence', () => {
         const stats = new StatsCalculator(sequence)
-        expect(stats.averageValue()).toBe(21.5)
+        expect(stats.averageValue()).toBe(18.666666666666667)
     })
 })
