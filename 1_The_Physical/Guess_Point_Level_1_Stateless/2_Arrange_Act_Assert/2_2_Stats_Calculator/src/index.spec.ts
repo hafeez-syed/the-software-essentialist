@@ -11,4 +11,9 @@ describe('stats calculator', () => {
         const stats = new StatsCalculator(sequence)
         expect(stats.maximumValue()).toBe(53)
     })
+
+    test('return the total number of elements in the sequence', () => {
+        const stats = new StatsCalculator(sequence)
+        expect(stats.numberOfElements()).toBe(6)
+    }
 })
