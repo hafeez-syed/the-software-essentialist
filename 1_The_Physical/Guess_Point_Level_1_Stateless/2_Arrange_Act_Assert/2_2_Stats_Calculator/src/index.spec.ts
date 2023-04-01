@@ -7,4 +7,8 @@ describe('stats calculator', () => {
         const stats = new StatsCalculator(sequence)
         expect(stats.minimumValue()).toBe(-8)
     })
+    test('return the maximum value from the sequence', () => {
+        const stats = new StatsCalculator(sequence)
+        expect(stats.maximumValue()).toBe(53)
+    })
 })
