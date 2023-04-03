@@ -32,4 +32,20 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.convert('FALSE OR TRUE')).toBe(true)
         expect(booleanCalculator.convert('FALSE OR FALSE')).toBe(false)
     })
+
+    test('should read complex string and return boolean', () => {
+        expect(booleanCalculator.convert('TRUE OR TRUE OR TRUE AND FALSE')).toBe(true)
+        expect(booleanCalculator.convert('TRUE OR FALSE AND NOT FALSE')).toBe(true)
+
+        expect(booleanCalculator.convert('TRUE OR TRUE OR TRUE OR FALSE')).toBe(true)
+        expect(booleanCalculator.convert('TRUE OR TRUE OR TRUE AND FALSE')).toBe(true)
+        expect(booleanCalculator.convert('TRUE OR TRUE AND TRUE AND FALSE')).toBe(true)
+
+        expect(booleanCalculator.convert('TRUE AND TRUE AND TRUE AND FALSE')).toBe(false)
+        expect(booleanCalculator.convert('TRUE AND TRUE AND TRUE OR FALSE')).toBe(true)
+        expect(booleanCalculator.convert('TRUE AND TRUE OR TRUE OR FALSE')).toBe(true)
+
+        expect(booleanCalculator.convert('NOT TRUE AND TRUE AND TRUE AND NOT FALSE')).toBe(false)
+        expect(booleanCalculator.convert('NOT TRUE AND TRUE OR TRUE AND NOT FALSE')).toBe(true)
+    })
 })
