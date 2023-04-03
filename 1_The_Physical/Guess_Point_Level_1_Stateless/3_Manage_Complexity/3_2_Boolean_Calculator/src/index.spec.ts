@@ -1,9 +1,5 @@
 import BooleanCalculator from './index'
 interface IBooleanCalculator {
-    setFirstNumber: (number: number) => void
-    setSecondNumber: (number: number) => void
-    setOperator: (op: string) => void
-    getResult: () => number
     convert: (input: string) => boolean
 }
 
