@@ -13,4 +13,9 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.convert('TRUE')).toBe(true)
         expect(booleanCalculator.convert('FALSE')).toBe(false)
     })
+
+    test('should read NOT string and return boolean', () => {
+        expect(booleanCalculator.convert('NOT TRUE')).toBe(false)
+        expect(booleanCalculator.convert('NOT FALSE')).toBe(true)
+    })
 })
