@@ -18,4 +18,11 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.convert('NOT TRUE')).toBe(false)
         expect(booleanCalculator.convert('NOT FALSE')).toBe(true)
     })
+
+    test('should read AND string and return boolean', () => {
+        expect(booleanCalculator.convert('TRUE AND TRUE')).toBe(true)
+        expect(booleanCalculator.convert('TRUE AND FALSE')).toBe(false)
+        expect(booleanCalculator.convert('FALSE AND TRUE')).toBe(false)
+        expect(booleanCalculator.convert('FALSE AND FALSE')).toBe(false)
+    })
 })
