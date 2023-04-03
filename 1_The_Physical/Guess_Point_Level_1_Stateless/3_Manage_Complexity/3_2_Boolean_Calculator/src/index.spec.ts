@@ -25,4 +25,11 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.convert('FALSE AND TRUE')).toBe(false)
         expect(booleanCalculator.convert('FALSE AND FALSE')).toBe(false)
     })
+
+    test('should read OR string and return boolean', () => {
+        expect(booleanCalculator.convert('TRUE OR TRUE')).toBe(true)
+        expect(booleanCalculator.convert('TRUE OR FALSE')).toBe(true)
+        expect(booleanCalculator.convert('FALSE OR TRUE')).toBe(true)
+        expect(booleanCalculator.convert('FALSE OR FALSE')).toBe(false)
+    })
 })
