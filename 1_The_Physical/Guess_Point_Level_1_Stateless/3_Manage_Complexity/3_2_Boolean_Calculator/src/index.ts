@@ -8,12 +8,25 @@ enum MAP {
 
 function BooleanCalculator() {
 
-    function convert(input: string) {
-        const exp = input.split(' ').map((word) => {
+    function getExpressions(expressionString: string) {
+        return expressionString.split(' ').map((word) => {
             return MAP[word as keyof typeof MAP]
         }).join('')
+    }
 
-        return eval(exp)
+    function removeParenthesis(expressionString: string) {
+        return expressionString.substring(expressionString.indexOf('(')+1, expressionString.indexOf(')'))
+    }
+
+    function convert(input: string) {
+        if (input.includes('(') && input.includes(')')) {
+            const expressionWithParenthesis = input.substring(input.indexOf('('), input.indexOf(')')+1)
+            const expressionWithoutParenthesis = eval(getExpressions(removeParenthesis(input)))
+            const simplifiedExpression = input.replace(expressionWithParenthesis, expressionWithoutParenthesis)
+            return eval(getExpressions(simplifiedExpression.toUpperCase()))
+        }
+
+        return eval(getExpressions(input))
     }
     
     return {
