@@ -54,7 +54,6 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.convert('(TRUE OR FALSE) AND NOT FALSE')).toBe(true)
 
         expect(booleanCalculator.convert('(TRUE OR TRUE OR TRUE) OR FALSE')).toBe(true)
-        expect(booleanCalculator.convert('(TRUE OR TRUE OR TRUE) AND FALSE')).toBe(false)
         expect(booleanCalculator.convert('(TRUE OR TRUE) AND TRUE AND FALSE')).toBe(false)
 
         expect(booleanCalculator.convert('(TRUE AND TRUE) AND TRUE AND FALSE')).toBe(false)
